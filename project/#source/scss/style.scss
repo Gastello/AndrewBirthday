@@ -1,0 +1,125 @@
+@import "null_style.scss";
+/*-------------------------------FONTS-----------------------------------*/
+//&display=swap&subset=cyrillic-ext
+@import "fonts.scss";
+
+
+/*-------------------------DEFAULT FONT-----------------------------*/
+$fontFamily: 'Press Start 2P';
+/*-------------------------------VARIABLES-------------------------------*/
+$paddingContainer: 15;
+$maxWidthContainer: 1200+$paddingContainer * 2;
+
+
+/*--------------------------CONTENT WRAPPERS------------------------------*/
+body {
+   font-family: $fontFamily;
+   background-color: yellow;
+}
+
+.wrapper {
+   width: 100%;
+   min-height: 100%;
+   overflow: hidden;
+   display: flex;
+   flex-direction: column;
+   background: url('../images/bg.webp');
+   background-size: cover;
+   position: relative;
+   z-index: 1;
+
+   &_none {
+      display: none;
+   }
+}
+
+.container {
+   max-width: $maxWidthContainer + px;
+   margin: 0 auto;
+   padding: 0 $paddingContainer + px;
+}
+
+.page {
+   flex: 1 1 100%;
+}
+
+.videobg {
+   width: 100vw;
+   height: 100vh;
+   position: absolute;
+   z-index: 0;
+}
+
+.header,
+.footer {
+   background-color: rgba(0, 0, 0, 0.141);
+}
+
+.marquee {
+   font-size: 18px;
+   padding: 5px 0;
+   color: white;
+
+   &_text {
+      padding-top: 12px;
+   }
+}
+
+.art {
+   cursor: pointer;
+   position: absolute;
+   top: 50%;
+   left: 50%;
+   transform: translate(-50%, -50%);
+   font-size: 11px;
+   font-weight: bold;
+   background-color: black;
+   transition: all 1s ease-in-out;
+
+   &_pressed {
+      left: 0;
+      transform: translate(0%, -50%);
+
+      .art__click {
+         display: none;
+      }
+   }
+
+   &__click {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      display: inline-block;
+      transition: all .4s linear;
+   }
+
+   &:hover>* {
+      color: yellow;
+      background: none;
+   }
+}
+
+
+.btn,
+.art__click {
+   font-family: 'Press Start 2P';
+   display: inline-block;
+   color: black;
+   background: yellow;
+   padding: 10px;
+   font-size: 18px;
+   position: absolute;
+   top: 50%;
+   left: 50%;
+   transform: translate(-50%, -50%);
+   cursor: pointer;
+}
+
+.btn {
+   transition: all .4s linear;
+
+   &:hover {
+      padding: 100px;
+   }
+}
